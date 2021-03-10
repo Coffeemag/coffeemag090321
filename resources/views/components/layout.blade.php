@@ -23,20 +23,14 @@
     </head>
 
     <body class="antialiased">
-        @include('backend.header')
-            
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            <div class="flex p-2">
-                @if(isset($sidebar))
-                    <aside>
-                    {{$sidebar}}
-                    </aside>
-                @endif
-                <main class="flex-one m-l-1">
+        @includeIf('backend.header')
+
+        <div class="flex min-h-screen bg-gray-100 sm:pt-0">
+            @includeIf('backend.sidebar')
+            <div class="w-3/4">
                 {{ $slot }}
-                </main>
             </div>
         </div>
-        @include('backend.footer')
+        @includeIf('backend.footer')
     </body>
 </html>
