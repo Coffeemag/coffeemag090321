@@ -14,8 +14,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->
-                    count(10)->
-                    create();
+        Category::create([
+            'name'          =>  'Root',
+            'description'   =>  'This is the root category, don\'t delete this one',
+            'parent_id'     =>  null,
+            'menu'          =>  0,
+        ]);
     }
 }

@@ -63,7 +63,7 @@
                                     <div class="col-md-2">
                                         @if ($targetCategory->image != null)
                                             <figure class="mt-2" style="width: 80px; height: auto;">
-                                                <img src="{{ asset('public/'.$targetCategory->image) }}" id="categoryImage" class="img-fluid" alt="img">
+                                                <img src="{{ asset($targetCategory->image) }}" id="categoryImage" style="width: 80px; height: 80px; border-radius: 50%;" alt="img">
                                             </figure>
                                         @endif
                                     </div>
