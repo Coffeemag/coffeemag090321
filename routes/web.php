@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +32,12 @@ Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->nam
 
 Route::group(['prefix'  =>   'categories'], function() {
 
-    Route::get('/', [CategoryController::class,'index'])->name('admin.categories.index');
-    Route::get('/create', [CategoryController::class, 'create'])->name('admin.categories.create');
-    Route::post('/store', [CategoryController::class,'store'])->name('admin.categories.store');
-    Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
-    Route::post('/update', [CategoryController::class, 'update'])->name('admin.categories.update');
-    Route::get('/{id}/delete', [CategoryController::class, 'delete'])->name('admin.categories.delete');
+    Route::get('/', [CategoryController::class,'index'])->name('backend.categories.index');
+    Route::get('/create', [CategoryController::class, 'create'])->name('backend.categories.create');
+    Route::post('/store', [CategoryController::class,'store'])->name('backend.categories.store');
+    Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('backend.categories.edit');
+    Route::post('/update', [CategoryController::class, 'update'])->name('backend.categories.update');
+    Route::get('/{id}/delete', [CategoryController::class, 'delete'])->name('backend.categories.delete');
 
 });
 

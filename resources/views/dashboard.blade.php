@@ -10,22 +10,22 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header">Profile</div>
-                                    <div class="card-body">
+                        <div class="flex flex-row justify-center">
+                            <div>
+                                <div>
+                                    <div><h2 class="font-bold text-indigo-500 text-xl">Profile</h2></div>
+                                    <div>
                                         @if (session('status'))
-                                            <div class="alert alert-success" role="alert">
+                                            <div role="alert">
                                                 {{ session('status') }}
                                             </div>
                                         @endif
                                         <div class="container">
-                                            <div class="row">
+                                            <div class="flex flex-row">
                                                 <div class="col-12">
                                                     @if ($errors->any())
-                                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <div role="alert">
+                                                            <button type="button" data-dismiss="alert" aria-label="Close">
                                                                 <span aria-hidden="true">×</span>
                                                             </button>
                                                             <ul>
@@ -39,30 +39,31 @@
                                                     @endif
                                                     <form action="{{ route('profile.update') }}" method="POST" role="form" enctype="multipart/form-data">
                                                         @csrf
-                                                        <div class="form-group row">
-                                                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
-                                                            <div class="col-md-6">
-                                                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}">
+                                                        <div class="flex flex-row">
+                                                            <label class="block font-bold text-lg self-center" for="name">Name</label>
+                                                            <div class="my-2 mx-6">
+                                                                <input class="w-full leading-3" id="name" type="text" name="name" value="{{ old('name', auth()->user()->name) }}">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
-                                                            <div class="col-md-6">
-                                                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}" disabled>
+                                                        <div class="flex flex-row">
+                                                            <label class="block font-bold text-lg self-center" for="email">Email</label>
+                                                            <div class="my-2 mx-6">
+                                                                <input class="w-full leading-3" id="email" type="text" name="email" value="{{ old('email', auth()->user()->email) }}" disabled>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">Profile Image</label>
-                                                            <div class="col-md-6">
-                                                                <input id="profile_image" type="file" class="form-control" name="profile_image">
+                                                        <div class="flex flex-row justify-between">
+                                                            <label class="block font-bold text-lg self-center" for="profile_image">Profile Image</label>
+                                                            <div class="my-2 mx-6">
+                                                                <input class="w-full leading-3" id="profile_image" type="file" name="profile_image">
                                                                 @if (auth()->user()->image)
                                                                     <code>{{ auth()->user()->image }}</code>
+                                                                    <img src="{{ asset(auth()->user()->image) }}" style="width: 40px; height: 40px; border-radius: 50%;">
                                                                 @endif
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row mb-0 mt-5">
-                                                            <div class="col-md-8 offset-md-4">
-                                                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                                        <div class="flex flex-row">
+                                                            <div class="my-2 mx-6">
+                                                                <button class="bg-green-200 rounded hover:bg-green-700 px-2 hover:text-white" type="submit">Update Profile</button>
                                                             </div>
                                                         </div>
                                                     </form>

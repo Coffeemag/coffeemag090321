@@ -1,24 +1,23 @@
-<div class="flex justify-center bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+<div class="flex justify-center bg-gray-900 sm:items-center sm:pt-0">
     <div class="flex">
-        <h3 class="dark:text-white">Here is Logo </h3>
-        @if (auth()->user()->image)
+         @if (auth()->user()->image)
         <img src="{{ asset(auth()->user()->image) }}" style="width: 40px; height: 40px; border-radius: 50%;">
     @endif
     </div>
     <div class="inline-block">
         <ul class="flex list-none m-0 p-0">
-            <li class="inline-block mx-2"><a href="#" class="dark:text-white">Item 1</a></li>
-            <li class="inline-block mx-2"><a href="#" class="dark:text-white">Item 2</a></li>
-            <li class="inline-block mx-2"><a href="#" class="dark:text-white">Item 3</a></li>
-            <li class="inline-block mx-2"><a href="#" class="dark:text-white">Item 4</a></li>
-            <li class="inline-block mx-2"><a href="#" class="dark:text-white">Item 5</a></li>
+            <li class="inline-block mx-6"><a href="#" class="text-white">Item 1</a></li>
+            <li class="inline-block mx-6"><a href="#" class="text-white">Item 2</a></li>
+            <li class="inline-block mx-6"><a href="#" class="text-white">Item 3</a></li>
+            <li class="inline-block mx-6"><a href="#" class="text-white">Item 4</a></li>
+            <li class="inline-block mx-6"><a href="#" class="text-white">Item 5</a></li>
         </ul>
     </div>
     <div class="inline-block">
         @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 mr-4 mt-2 sm:block">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm dark:text-white underline">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-white underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-white underline">Log in</a>
 
