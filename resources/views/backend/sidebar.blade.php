@@ -27,12 +27,25 @@
                 </li>
                 <li class="p-4 w-full flex">
                     <div class="mr-4 my-auto">
-                        <svg class="fill-current h-5 w-5" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"></path>
+                        <svg class="fill-current h-5 w-5" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"></path>
                         </svg>
                     </div>
                     <div class="flex-auto my-1">
                         <a class="hover:text-red-900 {{ Route::currentRouteName() == 'backend.categories.index' ? 'active' : '' }}" href="{{ route('backend.categories.index') }}">
                             <span>Categories</span>
+                        </a>
+                    </div>
+                 </li>
+                 <li class="p-4 w-full flex">
+                    <div class="mr-4 my-auto">
+                        <svg class="fill-current h-5 w-5" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                        </svg>
+                    </div>
+                    <div class="flex-auto my-1">
+                        <a class="hover:text-red-900 {{ Route::currentRouteName() == 'backend.attributes.index' ? 'active' : '' }}" href="{{ route('backend.attributes.index') }}">
+                        <span>Attributes</span>
                         </a>
                     </div>
                  </li>

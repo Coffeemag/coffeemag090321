@@ -8,7 +8,7 @@
         </div>
         <div class="min-w-screen min-h-screen w-full flex items-start justify-center bg-gray-100 font-sans overflow-hidden">
 
-            <table class="min-w-max w-full mx-4 mt-4 table-auto" id="sampleTable">
+            <table class="min-w-max w-full mx-4 mt-4 table-auto">
 
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">

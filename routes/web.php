@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AttributeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,17 @@ Route::group(['prefix'  =>   'categories'], function() {
     Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('backend.categories.edit');
     Route::post('/update', [CategoryController::class, 'update'])->name('backend.categories.update');
     Route::get('/{id}/delete', [CategoryController::class, 'delete'])->name('backend.categories.delete');
+
+});
+
+Route::group(['prefix'  =>   'attributes'], function() {
+
+    Route::get('/', [AttributeController::class,'index'])->name('backend.attributes.index');
+    Route::get('/create', [AttributeController::class, 'create'])->name('backend.attributes.create');
+    Route::post('/store', [AttributeController::class, 'store'])->name('backend.attributes.store');
+    Route::get('/{id}/edit', [AttributeController::class, 'edit'])->name('backend.attributes.edit');
+    Route::post('/update', [AttributeController::class, 'update'])->name('backend.attributes.update');
+    Route::get('/{id}/delete', [AttributeController::class, 'delete'])->name('backend.attributes.delete');
 
 });
 
