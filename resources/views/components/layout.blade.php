@@ -18,6 +18,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
         <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+        @livewireStyles()
     </head>
 
     <body class="antialiased">
@@ -28,5 +29,6 @@
                 {{ $slot }}
         </div>
         @includeIf('backend.footer')
+        @livewireScripts()
     </body>
 </html>

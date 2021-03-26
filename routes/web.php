@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\AttributeValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,5 +53,10 @@ Route::group(['prefix'  =>   'attributes'], function() {
     Route::get('/{id}/delete', [AttributeController::class, 'delete'])->name('backend.attributes.delete');
 
 });
+
+Route::post('/get-values', [AttributeValueController::class, 'getValues']);
+Route::post('/add-values', [AttributeValueController::class, 'addValues']);
+Route::post('/update-values', [AttributeValueController::class, 'updateValues']);
+Route::post('/delete-values', [AttributeValueController::class, 'deleteValues']);
 
 require __DIR__.'/auth.php';
