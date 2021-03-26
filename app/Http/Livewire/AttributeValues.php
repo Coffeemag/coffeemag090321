@@ -12,26 +12,27 @@ use Illuminate\Support\Facades\Route;
 class AttributeValues extends Component
 {
 
-    public $attributeId;
     public AttributeValue $value;
+    public $value;
     public $valueId;
     public $valueValue;
     public $valuePrice;
+    public Request $request;
 
-
-    public function render()
+    public function render(Request $request)
     {
-        return view('livewire.attribute-values',  ['values'=>Route::post('/get-values',function($attributeId){
+        return view('livewire.attribute-values',  ['values'=>Route::post('/get-values',function(Request $request){
 
         })]);
     }
 
 
-    public function mount(AttributeValue $value)
+    public function mount(Request $request)
     {
-        $this->valueId = $value->id;
-        $this->valueValue = $value->value;
-        $this->valuePrice = $value->price;
+        Route::post('/get-values',function(Request $request){
+            return view('livewire.attribute-values', [] );
+        });
+
     }
 
 }

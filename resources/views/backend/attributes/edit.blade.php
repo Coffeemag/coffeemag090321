@@ -1,11 +1,11 @@
 <x-layout title="COFFEEMAG">
     <div class="w-full min-h-screen">
         @include('backend.flash')
-        <div x-data="{show:false}" class="min-w-screen flex justify-between mx-4 mt-4">
-            <div class="min-w-screen mx-4 mt-2 bg-gray-100">
+        <div x-data="{show:false}" class="flex justify-between mx-4 mt-4 min-w-screen">
+            <div class="mx-4 mt-2 bg-gray-100 min-w-screen">
                 <div>
                     <x-h1_admin>{{ $pageTitle }}</x-h1_admin>
-                    <h3 class="text-indigo-700 text-xl mx-2">{{ $subTitle }}</h3>
+                    <h3 class="mx-2 text-xl text-indigo-700">{{ $subTitle }}</h3>
                 </div>
                 <div>
                     <ul class="flex-column">
@@ -14,10 +14,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="min-w-screen w-full mx-4 mt-2 bg-gray-100">
+            <div class="w-full mx-4 mt-2 bg-gray-100 min-w-screen">
                 <div class="mx-auto">
                     <div>
-                        <form class="ml-6 my-2" action="{{ route('backend.attributes.update') }}" method="POST" role="form">
+                        <form class="my-2 ml-6" action="{{ route('backend.attributes.update') }}" method="POST" role="form">
                             @csrf
                             <h3>Attribute Information</h3>
                             <hr>
@@ -82,15 +82,15 @@
                             <div>
                                 <div>
                                     <div>
-                                        <button class="inline-block bg-green-300 hover:bg-green-600  h-12 border border-gray-800 hover:text-white p-1 rounded" type="submit">Update Attribute</button>
-                                        <a class="inline-block border border-black rounded w-36 text-center pt-3 px-3 bg-green-300 hover:bg-green-600 hover:text-white" href="{{ route('backend.attributes.index') }}">Go Back</a>
+                                        <button class="inline-block h-12 p-1 bg-green-300 border border-gray-800 rounded hover:bg-green-600 hover:text-white" type="submit">Update Attribute</button>
+                                        <a class="inline-block px-3 pt-3 text-center bg-green-300 border border-black rounded w-36 hover:bg-green-600 hover:text-white" href="{{ route('backend.attributes.index') }}">Go Back</a>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="mt-6" x-show="show" x-on:click.away="show=false">
-                        @livewire('attribute-values',  ['attributeId' =>  $attribute->id])
+                        @livewire('attribute-values')
                     </div>
                 </div>
             </div>
