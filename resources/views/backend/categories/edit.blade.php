@@ -1,33 +1,33 @@
 <x-layout title="{{ $pageTitle }}">
     <div class="w-full min-h-screen">
+        <div x-data="{show:false}" class="flex justify-between mx-4 mt-4 min-w-screen">
         @include('backend.flash')
-
-        <div class="min-w-screen flex flex-col mx-4 mt-2 bg-gray-100">
-            <div class="flex justify-between items-end">
+        <div class="w-1/4 mx-4 mt-2 bg-gray-100 min-w-screen">
+            <div class="flex items-end justify-between">
                 <x-h1_admin>{{ $pageTitle }}</x-h1_admin>
             </div>
         </div>
 
-        <div class="min-w-screen flex mx-4 mt-4 bg-gray-100">
-            <h3 class="text-indigo-700 text-xl mx-2">{{ $subTitle }}</h3>
+        <div class="w-full mx-4 mt-4 bg-gray-100 min-w-screen">
+            <h3 class="mx-2 text-xl text-indigo-700">{{ $subTitle }}</h3>
             <div class="mx-auto">
                 <div>
 
-                    <form class="ml-6 my-2" action="{{ route('backend.categories.update') }}" method="POST" role="form" enctype="multipart/form-data">
+                    <form class="my-2 ml-6" action="{{ route('backend.categories.update') }}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <div class="my-2">
-                                <label class="block text-left mb-1" for="name">Name <span class="m-l-5 text-danger"> *</span></label>
+                                <label class="block mb-1 text-left" for="name">Name <span class="m-l-5 text-danger"> *</span></label>
                                 <input class="leading-3 @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $targetCategory->name) }}"/>
                                 <input type="hidden" name="id" value="{{ $targetCategory->id }}">
                                 @error('name') {{ $message }} @enderror
                             </div>
                             <div class="my-2">
-                                <label class="block text-left mb-1" for="description">Description</label>
+                                <label class="block mb-1 text-left" for="description">Description</label>
                                 <textarea class="form-control" rows="4" name="description" id="description">{{ old('description', $targetCategory->description) }}</textarea>
                             </div>
                             <div class="my-2">
-                                <label class="block text-left mb-1" for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
+                                <label class="block mb-1 text-left" for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
                                 <select id=parent class="form-control custom-select mt-15 @error('parent_id') is-invalid @enderror" name="parent_id">
                                     <option value="0">Select a parent category</option>
                                     @foreach($categories as $category)
@@ -42,7 +42,7 @@
                             </div>
                             <div class="my-2">
                                 <div class="form-check">
-                                    <label class="block text-left mb-1">
+                                    <label class="block mb-1 text-left">
                                         <input class="form-check-input" type="checkbox" id="featured" name="featured"
                                         {{ $targetCategory->featured == 1 ? 'checked' : '' }}
                                         />Featured Category
@@ -51,7 +51,7 @@
                             </div>
                             <div class="my-2">
                                 <div class="form-check">
-                                    <label class="block text-left mb-1">
+                                    <label class="block mb-1 text-left">
                                         <input class="form-check-input" type="checkbox" id="menu" name="menu"
                                         {{ $targetCategory->menu == 1 ? 'checked' : '' }}
                                         />Show in Menu
@@ -75,15 +75,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-row">
-                            <button class="inline-block bg-green-300 hover:bg-green-600  h-12 border border-gray-800 hover:text-white p-1 rounded" type="submit">Update Category</button>
+                        <div class="w-full py-3">
+                            <div class="inline-block mt-2 mr-2">
+                            <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-red-400 to-red-600 transform hover:scale-110" type="submit">Update Category</button>
                             &nbsp;&nbsp;&nbsp;
-                            <a class="inline-block border border-black rounded w-36 text-center pt-3 px-3 bg-green-300 hover:bg-green-600 hover:text-white" href="{{ route('backend.categories.index') }}">
+                            </div>
+                            <div class="inline-block mt-2 mr-2">
+                            <a class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-purple-400 to-purple-600 transform hover:scale-110" href="{{ route('backend.categories.index') }}">
                                 Cancel</a>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </x-layout>

@@ -6,18 +6,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{$title ?? 'No Name Page'}}</title>
-         <!-- Fonts -->
-         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-         <!-- Styles -->
-         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-         <!-- Scripts -->
-         <script src="{{ asset('js/app.js') }}" defer></script>
 
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-        <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-        <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
         @livewireStyles()
     </head>
 
@@ -26,9 +21,16 @@
 
         <div class="flex min-h-screen">
             @includeIf('backend.sidebar')
+            <div class="w-full min-h-screen">
                 {{ $slot }}
+            </div>
         </div>
         @includeIf('backend.footer')
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+        <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
         @livewireScripts()
     </body>
 </html>

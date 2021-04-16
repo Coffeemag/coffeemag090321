@@ -1,45 +1,45 @@
 <x-layout title="COFFEEMAG">
-    <div class="overflow-x-auto w-5/6">
+    <div class="w-full overflow-x-auto">
         @include('backend.flash')
-        <div class="w-full flex flex-row justify-between">
+        <div class="flex flex-row justify-between w-full">
             <x-h1_admin>{{ $pageTitle }}</x-h1_admin>
-            <span class="text-indigo-700 text-xl">{{ $subTitle }}</span>
-            <a href="{{ route('backend.attributes.create') }}" class="bg-green-600 shadow-xl text-white my-2 mr-6 rounded">Add Attribute</a>
+            <span class="text-xl text-indigo-700">{{ $subTitle }}</span>
+            <a href="{{ route('backend.attributes.create') }}" class="focus:outline-none text-white text-sm my-4 mr-8 py-2.5 px-5 rounded-md bg-gradient-to-r from-green-400 to-green-600 transform hover:scale-110">Add Attribute</a>
         </div>
-        <div class="min-w-screen min-h-screen w-full flex items-start justify-center bg-gray-100 font-sans overflow-hidden">
-            <table class="min-w-max w-full mx-4 mt-4 table-auto">
+        <div class="flex items-start justify-center w-full min-h-screen overflow-hidden font-sans bg-gray-100 min-w-screen">
+            <table class="w-full mx-4 mt-4 table-auto min-w-max">
                 <thead>
-                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                    <th class="py-3 px-6 text-left"> Code </th>
-                    <th class="py-3 px-6 text-center"> Name </th>
-                    <th class="py-3 px-6 text-center"> Frontend Type </th>
-                    <th class="py-3 px-6 text-center"> Filterable </th>
-                    <th class="py-3 px-6 text-center"> Required </th>
-                    <th style="width:100px; min-width:100px;" class="py-3 px-6 text-center">Action</th>
+                <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">
+                    <th class="px-6 py-3 text-left"> Code </th>
+                    <th class="px-6 py-3 text-center"> Name </th>
+                    <th class="px-6 py-3 text-center"> Frontend Type </th>
+                    <th class="px-6 py-3 text-center"> Filterable </th>
+                    <th class="px-6 py-3 text-center"> Required </th>
+                    <th style="width:100px; min-width:100px;" class="px-6 py-3 text-center">Action</th>
                 </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
+                <tbody class="text-sm font-light text-gray-600">
                     @foreach($attributes as $attribute)
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">{{ $attribute->code }}</td>
-                            <td class="py-3 px-6 text-left">{{ $attribute->name }}</td>
-                            <td class="py-3 px-6 text-center">{{ $attribute->frontend_type }}</td>
-                            <td class="py-3 px-6 text-center">
+                            <td class="px-6 py-3 text-left whitespace-nowrap">{{ $attribute->code }}</td>
+                            <td class="px-6 py-3 text-left">{{ $attribute->name }}</td>
+                            <td class="px-6 py-3 text-center">{{ $attribute->frontend_type }}</td>
+                            <td class="px-6 py-3 text-center">
                                 @if ($attribute->is_filterable == 1)
                                     <span>Yes</span>
                                 @else
                                     <span>No</span>
                                 @endif
                             </td>
-                            <td class="py-3 px-6 text-center" >
+                            <td class="px-6 py-3 text-center" >
                                 @if ($attribute->is_required == 1)
                                     <span>Yes</span>
                                 @else
                                     <span>No</span>
                                 @endif
                             </td>
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex item-center justify-center" role="group" aria-label="Second group">
+                            <td class="px-6 py-3 text-center">
+                                <div class="flex justify-center item-center" role="group" aria-label="Second group">
                                     <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                     <a href="{{ route('backend.attributes.edit', $attribute->id) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

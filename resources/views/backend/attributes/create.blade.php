@@ -2,22 +2,21 @@
     <div class="w-full min-h-screen">
         @include('backend.flash')
 
-        <div class="min-w-screen flex flex-col mx-4 mt-2 bg-gray-100">
-            <div class="flex justify-between items-end">
+        <div class="flex flex-col mx-4 mt-2 bg-gray-100 min-w-screen">
+            <div class="flex items-end justify-between">
                 <x-h1_admin>{{ $pageTitle }}</x-h1_admin>
+                <h3 class="mx-2 text-xl text-indigo-700">{{ $subTitle }}</h3>
             </div>
         </div>
 
-        <div class="min-w-screen flex mx-4 mt-4 bg-gray-100">
-            <h3 class="text-indigo-700 text-xl mx-2">{{ $subTitle }}</h3>
-            <div class="row user">
-                <div class="col-md-3">
-                    <div class="tile p-0">
-                        <ul class="nav flex-column nav-tabs user-tabs">
-                            <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">General</a></li>
-                        </ul>
-                    </div>
+        <div class="flex mx-4 mt-4 bg-gray-100 min-w-screen">
+            <div class="justify-between mx-4 mt-4 min-w-screen">
+                <div class="p-0 tile">
+                    <ul class="px-4">
+                        <li class="my-8"><a class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-green-400 to-green-600 transform hover:scale-110" href="#" data-toggle="tab">General</a></li>
+                    </ul>
                 </div>
+
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane active" id="general">
@@ -73,11 +72,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tile-footer">
-                                        <div class="row d-print-none mt-2">
-                                            <div class="col-12 text-right">
-                                                <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save Attribute</button>
-                                                <a class="btn btn-danger" href="{{ route('backend.attributes.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Go Back</a>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-red-400 to-red-600 transform hover:scale-110" type="submit">Save Attribute</button>
+                                                <a class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-purple-400 to-purple-600 transform hover:scale-110" href="{{ route('backend.attributes.index') }}">Go Back</a>
                                             </div>
                                         </div>
                                     </div>

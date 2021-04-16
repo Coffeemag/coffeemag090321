@@ -1,54 +1,54 @@
 <x-layout title="COFFEEMAG">
-    <div class="overflow-x-auto w-5/6">
+    <div class="w-full min-h-screen overflow-x-auto">
         @include('backend.flash')
-        <div class="w-full flex flex-row justify-between">
+        <div class="flex flex-row justify-between w-full">
             <x-h1_admin>{{ $pageTitle }}</x-h1_admin>
-            <span class="text-indigo-700 text-xl">{{ $subTitle }}</span>
-            <a href="{{ route('backend.categories.create') }}" class="bg-green-600 shadow-xl text-white my-2 mr-6 rounded">Add Category</a>
+            <span class="text-xl text-indigo-700">{{ $subTitle }}</span>
+            <a href="{{ route('backend.categories.create') }}" class="focus:outline-none text-white text-sm my-4 mr-8 py-2.5 px-5 rounded-md bg-gradient-to-r from-green-400 to-green-600 transform hover:scale-110">Add Category</a>
         </div>
-        <div class="min-w-screen min-h-screen w-full flex items-start justify-center bg-gray-100 font-sans overflow-hidden">
+        <div class="flex items-start justify-center w-full min-h-screen overflow-hidden font-sans bg-gray-100 min-w-screen">
 
-            <table class="min-w-max w-full mx-4 mt-4 table-auto">
+            <table class="w-full mx-4 mt-4 table-auto min-w-max">
 
                 <thead>
-                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left"> # </th>
-                        <th class="py-3 px-6 text-center"> Name </th>
-                        <th class="py-3 px-6 text-center"> Slug </th>
-                        <th class="py-3 px-6 text-center"> Parent </th>
-                        <th class="py-3 px-6 text-center"> Featured </th>
-                        <th class="py-3 px-6 text-center"> Menu </th>
-                        <th class="py-3 px-6 text-center"> Order </th>
-                        <th class="py-3 px-6 text-center">Action</th>
+                    <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">
+                        <th class="px-6 py-3 text-left"> # </th>
+                        <th class="px-6 py-3 text-center"> Name </th>
+                        <th class="px-6 py-3 text-center"> Slug </th>
+                        <th class="px-6 py-3 text-center"> Parent </th>
+                        <th class="px-6 py-3 text-center"> Featured </th>
+                        <th class="px-6 py-3 text-center"> Menu </th>
+                        <th class="px-6 py-3 text-center"> Order </th>
+                        <th class="px-6 py-3 text-center">Action</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
+                <tbody class="text-sm font-light text-gray-600">
                     @foreach($categories as $category)
                         @if ($category->id != 1)
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                <td class="py-3 px-6 text-left whitespace-nowrap">{{ $category->id }}</td>
-                                <td class="py-3 px-6 text-left">{{ $category->name }}</td>
-                                <td class="py-3 px-6 text-center">{{ $category->slug }}</td>
-                                <td class="py-3 px-6 text-center">{{ $category->parent->name }}</td>
-                                <td class="py-3 px-6 text-center">
+                                <td class="px-6 py-3 text-left whitespace-nowrap">{{ $category->id }}</td>
+                                <td class="px-6 py-3 text-left">{{ $category->name }}</td>
+                                <td class="px-6 py-3 text-center">{{ $category->slug }}</td>
+                                <td class="px-6 py-3 text-center">{{ $category->parent->name }}</td>
+                                <td class="px-6 py-3 text-center">
                                     @if ($category->featured == 1)
                                         <span>Yes</span>
                                     @else
                                         <span>No</span>
                                     @endif
                                 </td>
-                                <td class="py-3 px-6 text-center">
+                                <td class="px-6 py-3 text-center">
                                     @if ($category->menu == 1)
                                         <span>Yes</span>
                                     @else
                                         <span>No</span>
                                     @endif
                                 </td>
-                                <td class="py-3 px-6 text-center">
+                                <td class="px-6 py-3 text-center">
                                     {{ $category->order }}
                                 </td>
-                                <td class="py-3 px-6 text-center">
-                                    <div class="flex item-center justify-center">
+                                <td class="px-6 py-3 text-center">
+                                    <div class="flex justify-center item-center">
                                         <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                             <a href="{{ route('backend.categories.edit', $category->id) }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
